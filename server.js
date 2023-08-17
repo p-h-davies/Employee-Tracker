@@ -126,8 +126,6 @@ function questions() {
                             }
                         ])
                             .then((responses) => {
-                                console.log(responses.dep)
-
                                 db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${responses.firstName}", "${responses.lastName}", ${responses.role}, ${responses.manager})`);
                                 console.log('**Employee Added**');
                                 questions()
@@ -136,7 +134,6 @@ function questions() {
                 })
             } else if (responses.choice == 'update an employee role') {
                 db.query('SELECT id AS value, CONCAT(first_name, " ", last_name) AS name FROM employee', function (err, results) {
-                    console.log(results)
                     let currentEmployees = results
                     db.query('SELECT id AS value, title AS name FROM role', function (err, results) {
                         let currentRoles = results
@@ -155,8 +152,6 @@ function questions() {
                             },
                         ])
                             .then((responses) => {
-                                console.log(responses.employee)
-
                                 db.query(`UPDATE employee SET role_id = ${responses.role} WHERE id = ${responses.employee}`);
                                 console.log('**Employee role updated**')
                                 questions()
