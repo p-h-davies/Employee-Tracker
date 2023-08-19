@@ -1,3 +1,5 @@
+USE business_db;
+
 INSERT INTO department (id, name)
 VALUES (1, "Accounting"),
 (2, "Sales"),
@@ -12,11 +14,10 @@ VALUES (1, "Accountant", 70000.00, 1),
 (5, "CEO", 150000.00, 4);
 
 INSERT INTO employee (id, first_name, last_name, role_id)
-VALUES (1, "David", "Wallace", 4),
+VALUES (1, "David", "Wallace", 4);
 
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES (1, "David", "Wallace", 4),
-(2, "Michael", "Scott", 5, 1),
+VALUES (2, "Michael", "Scott", 5, 1),
 (3, "Dwight", "Schrute", 3, 2),
 (4, "Kelly", "Kapoor", 2, 2),
 (5, "Angela", "Martin", 1, 2);
